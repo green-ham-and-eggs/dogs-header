@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dogs-header';
+  count=0;
+
+  @HostListener('window:cartChange', ['$event'])
+  myFunction(){
+    this.count++;
+    // Better: this.count = window.pdp.cart.count
+    //console.log(window)
+  }
 }
